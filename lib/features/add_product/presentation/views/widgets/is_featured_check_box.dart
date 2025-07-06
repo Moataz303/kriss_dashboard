@@ -16,7 +16,22 @@ class _IsFeaturedCheckBoxState extends State<IsFeaturedCheckBox> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      // mainAxisAlignment: MainAxisAlignment.end,
       children: [
+        Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                text: 'هل هذا العنصر مميز؟',
+                style: TextStyles.semiBold13.copyWith(
+                  color: AppColors.lightPrimaryColor,
+                ),
+              ),
+            ],
+          ),
+          textAlign: TextAlign.right,
+        ),
+        Expanded(child: SizedBox(width: 16)),
         CustomCheckBox(
           onChecked: (value) {
             isTermsAccepted = value;
@@ -26,21 +41,6 @@ class _IsFeaturedCheckBoxState extends State<IsFeaturedCheckBox> {
           isChecked: isTermsAccepted,
         ),
         const SizedBox(width: 16),
-        Expanded(
-          child: Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(
-                  text: 'هل هذا العنصر مميز؟',
-                  style: TextStyles.semiBold13.copyWith(
-                    color: AppColors.lightPrimaryColor,
-                  ),
-                ),
-              ],
-            ),
-            textAlign: TextAlign.right,
-          ),
-        ),
       ],
     );
   }
